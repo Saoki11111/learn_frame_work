@@ -1,0 +1,27 @@
+---
+
+version: '3.7'
+services:
+  php:
+    #build: ./php-fpm
+    build: ./php # Dockerfile からビルド
+    depends_on:
+    - db
+    ports:
+    - 8562:8000
+    volumes:
+    - ./work:/work # コンテナに自動反映される、 都度 docker build 不要
+
+  db:
+    build: ./mysql/
+    volumes:
+    - db-data:/var/lib/mysql
+    environment:
+      TZ: "Asia/Tokyo"
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: myapp
+      MYSQL_USER: myappuser
+      MYSQL_PASSWORD: myapppass
+
+volumes:
+  db-data:

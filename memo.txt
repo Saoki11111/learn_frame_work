@@ -1,0 +1,24 @@
+DB に保存、SQL インジェクションかける
+- エスケープ === サニタイズ
+  - https://webukatu.com/wordpress/blog/1635/
+
+コマンドインジェクション
+  - https://www.shadan-kun.com/blog/measure/2873/
+
+XSS
+  - https://qiita.com/miya_zato/items/7ea57326c86a198fcf08
+  - 入力フォームに タグを仕込んで script を動かせる
+
+htmlspecialchars
+  - h
+  - e (escape)
+
+追加
+- バリデーション message 必須
+  - 3文字以上 20文字以内
+  - mb_strlen 長さを返す 今 true false になってる
+  - [] 修正する
+  - [] 必須にする
+- session 使って送信
+  - session は session.save に入っている
+- 戻るボタン
