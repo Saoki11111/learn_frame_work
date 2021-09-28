@@ -11,10 +11,8 @@ $last_uri = end($array_parse_uri);
 // クエリ文字列外す
 $call = substr($last_uri, 0, strcspn($last_uri, '?'));
 
-echo 'hoge';
 // app/controller 配下に同盟の PHP ファイルがないか探す。
 if (file_exists('../app/controlelr/' . $call . 'php')) {
-echo 'fuga';
   // 見つかったファイルをインクルードしコントローラをインスタンス化
   include('../app/controller/' . $call . 'php');
   $class = 'app\controller\\' . $call;
